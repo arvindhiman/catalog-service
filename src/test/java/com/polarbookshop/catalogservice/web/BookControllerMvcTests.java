@@ -22,7 +22,7 @@ public class BookControllerMvcTests {
     private BookService bookService;
 
     @Test
-    void whenGetBookNotExistingThenShouldReturn404() throws Exception {
+    void whenGetBookNotExistsThenShouldReturn404() throws Exception {
         String isbn = "7373737312";
         given(bookService.viewBookDetails(isbn)).willThrow(BookNotFoundException.class);
         mockMvc.perform(get("/books/"+isbn))
